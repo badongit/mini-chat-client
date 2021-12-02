@@ -1,0 +1,68 @@
+@import '../../assets/variables/main';
+
+.profile {
+  background-color: $white-gray;
+  padding: 20px;
+  min-height: 100vh;
+  position: relative;
+
+  &__back {
+    position: absolute !important;
+    top: 20px;
+    left: 20px;
+  }
+
+  &__main {
+    max-width: 1200px;
+    width: 100%;
+    border-radius: 30px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    min-height: 90vh;
+
+    &__form {
+      width: 100%;
+      max-width: 600px;
+      min-height: 500px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+
+      &__profile {
+        position: relative;
+        top: 0;
+        left: 0;
+        transition: all 0.25s linear;
+        opacity: 1;
+      }
+
+      &__password {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        transition: all 0.25s linear;
+        opacity: 0;
+      }
+    }
+  }
+
+  @media screen and(max-width: 599px) {
+    &__main {
+      padding: 10px 15px;
+    }
+  }
+}
+
+.selected__password {
+  .profile__main__form__profile {
+    left: -100% !important;
+    opacity: 0;
+  }
+
+  .profile__main__form__password {
+    left: 0 !important;
+    opacity: 1;
+  }
+}

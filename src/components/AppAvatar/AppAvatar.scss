@@ -1,0 +1,43 @@
+@import '../../assets/variables/main';
+
+.app-avatar {
+  border: 1px solid $white-gray;
+}
+
+.large {
+  @include size(150px);
+}
+
+.small {
+  @include size(50px);
+}
+
+.normal {
+  @include size(60px);
+}
+
+.vsmall {
+  @include size(36px);
+}
+
+.online {
+  position: relative !important;
+  color: $green-light;
+  overflow: unset !important;
+  img {
+    border-radius: 50%;
+  }
+
+  &::before {
+    position: absolute;
+    bottom: 15%;
+    right: 15%;
+    content: '';
+    transform: translate(50%, 50%);
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    background-color: $green-light;
+    box-shadow: 0 0 0 2px white;
+  }
+}

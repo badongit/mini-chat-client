@@ -1,0 +1,25 @@
+@import '../../assets/variables/main';
+
+.send-message {
+  background-color: white;
+  padding: 10px;
+  padding-top: 15px;
+
+  &__form {
+    display: flex;
+    align-items: center;
+
+    .MuiInput-underline::before {
+      border: none !important;
+    }
+    .MuiInput-underline::after {
+      border: none !important;
+    }
+
+    .MuiInput-root {
+      background-color: $white-gray;
+      border-radius: 30px;
+      padding: 10px 0px 10px 20px;
+    }
+  }
+}

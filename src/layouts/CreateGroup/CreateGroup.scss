@@ -1,0 +1,72 @@
+@import '../../assets/variables/main';
+
+.create-group {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  &__overlay {
+    width: 100%;
+    height: 100%;
+    background-color: $dark_overlay;
+  }
+
+  &__modal {
+    background-color: #fff;
+    border-radius: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 600px;
+    width: 100%;
+    max-height: 100vh;
+    padding: 14px;
+    @include vertical-scroll;
+
+    &__header {
+      position: relative;
+      margin-bottom: 20px;
+
+      &__close {
+        position: absolute;
+        top: -10px;
+        right: 0px;
+      }
+
+      &__reset {
+        position: absolute;
+        top: -10px;
+        left: 0;
+      }
+    }
+
+    &__members {
+      width: 100%;
+      height: 60px;
+      @include flex-center(flex-start, center);
+      @include horizontal-scroll;
+    }
+
+    &__list-users {
+      height: 350px;
+      @include vertical-scroll;
+    }
+
+    &__submit {
+      text-align: right;
+      padding-top: 10px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    &__modal {
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
+    }
+  }
+}

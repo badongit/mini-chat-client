@@ -1,0 +1,18 @@
+@import '../../assets/variables/main';
+
+.welcome {
+  @include flex-center;
+  flex-direction: column;
+
+  & > div {
+    text-align: center;
+  }
+
+  &__logo {
+    width: 200px;
+
+    img {
+      width: 100%;
+    }
+  }
+}

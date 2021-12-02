@@ -1,0 +1,29 @@
+@import '../../assets/variables/main';
+
+.messages-header {
+  background-color: white;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: $shadow-bottom;
+  border-bottom: 1px solid $white-gray;
+
+  &__left {
+    display: flex;
+    align-items: center;
+
+    &__name {
+      flex: 1;
+      padding: 0 15px;
+      font-size: 18px !important;
+      overflow: hidden;
+
+      &__text {
+        max-width: 80%;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

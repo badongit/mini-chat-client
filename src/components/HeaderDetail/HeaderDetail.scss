@@ -1,0 +1,35 @@
+@import '../../assets/variables/main';
+
+.header-detail {
+  &__avatar {
+    position: relative;
+    margin-bottom: 30px;
+
+    &__icon {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      text-align: center;
+      background-color: $gray;
+      color: white;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      border: 1px solid white;
+      @include flex-center;
+      cursor: pointer;
+    }
+  }
+
+  .MuiAvatar-root {
+    margin: 15px auto;
+  }
+
+  hr {
+    width: 100%;
+    opacity: 0.5;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+}

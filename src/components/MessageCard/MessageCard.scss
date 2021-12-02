@@ -1,0 +1,130 @@
+@import '../../assets/variables/main';
+
+.message-card-system {
+  color: $gray;
+  margin-top: 8px;
+}
+
+.message-card {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+
+  &__avatar {
+    width: 36px;
+  }
+
+  &__contain {
+    max-width: 70%;
+    margin: 2px 10px;
+
+    &__text {
+      background-color: $white-gray;
+      padding: 6px 10px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      position: relative;
+      width: fit-content;
+
+      &__time {
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 100%;
+        padding: 6px 10px;
+        white-space: nowrap;
+        border-radius: 10px;
+        z-index: 1000;
+      }
+
+      &:hover &__time {
+        display: block !important;
+      }
+    }
+
+    &__name {
+      color: $gray;
+    }
+  }
+
+  &__only {
+    margin-top: 8px;
+
+    .message-card__contain__text {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+  }
+
+  &__top {
+    margin-top: 8px;
+
+    .message-card__contain__text {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 6px;
+    }
+  }
+  &__middle {
+    .message-card__contain__text {
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+    }
+  }
+  &__bottom {
+    .message-card__contain__text {
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 20px;
+    }
+  }
+}
+
+.message-card-me {
+  .message-card {
+    justify-content: flex-end;
+
+    &__contain {
+      &__text {
+        background-color: $blue;
+        color: white;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+
+        &__time {
+          left: unset;
+          right: 100%;
+          color: black;
+        }
+
+        // &:hover &__time {
+        //   display: block !important;
+        // }
+      }
+    }
+
+    &__only {
+      .message-card__contain__text {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+    }
+
+    &__top {
+      .message-card__contain__text {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 6px;
+      }
+    }
+    &__middle {
+      .message-card__contain__text {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+    }
+    &__bottom {
+      .message-card__contain__text {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 20px;
+      }
+    }
+  }
+}

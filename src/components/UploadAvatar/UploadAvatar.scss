@@ -1,0 +1,78 @@
+@import '../../assets/variables/main';
+
+.upload-avatar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 15px;
+
+  &__background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $dark_overlay;
+  }
+
+  &__modal {
+    position: absolute;
+    max-width: 800px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    &__header {
+      position: relative;
+
+      &__close {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+    }
+
+    &__preview {
+      width: 100%;
+      max-width: 400px;
+      height: 400px;
+      margin: 0 auto;
+      border: 1px solid $gray;
+      @include flex-center;
+      background-color: $gray;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &__button {
+      text-align: center;
+      margin: 20px 0;
+
+      & > * {
+        margin: 0 15px;
+      }
+    }
+  }
+
+  hr {
+    margin: 15px 0;
+  }
+}
+
+.input-upload {
+  display: none;
+}

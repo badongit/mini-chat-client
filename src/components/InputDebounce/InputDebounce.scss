@@ -1,0 +1,19 @@
+@import '../../assets/variables/main';
+
+.input-debounce {
+  padding: 16px 25px;
+  background-color: $white-gray;
+  border-radius: 40px;
+
+  .MuiInput-underline::before {
+    border: none !important;
+  }
+  .MuiInput-underline::after {
+    border: none !important;
+  }
+
+  label {
+    cursor: pointer;
+    font-size: 2rem;
+  }
+}

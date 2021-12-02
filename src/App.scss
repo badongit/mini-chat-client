@@ -1,0 +1,10 @@
+@import './assets/variables/main';
+
+.hide {
+  display: none !important;
+}
+
+.Mui-disabled {
+  background-color: $gray-dark !important;
+  color: white !important;
+}

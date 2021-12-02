@@ -1,0 +1,70 @@
+@import '../../assets/variables/main';
+
+.chat-card {
+  padding: 10px;
+  border-radius: 8px;
+  @include flex-center(flex-start, center);
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    background-color: $white-gray;
+  }
+
+  &__avatar {
+    margin-right: 15px;
+  }
+
+  &__content {
+    flex: 1;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+
+    &__title {
+      white-space: nowrap;
+    }
+
+    &__text {
+      color: $gray;
+      white-space: nowrap;
+      font-size: 14px !important;
+      flex: 1;
+    }
+
+    &__time {
+      margin-left: 10px !important;
+      font-size: 14px !important;
+    }
+  }
+
+  &__modals {
+    position: absolute;
+    right: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: $shadow-around;
+    z-index: 100;
+
+    &__button {
+      padding: 10px 16px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+    }
+  }
+
+  &__bottom {
+    top: 70%;
+  }
+
+  &__top {
+    bottom: 70%;
+  }
+}
+
+.chat-card__selected {
+  background-color: $gray-light !important;
+}

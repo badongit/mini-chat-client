@@ -1,0 +1,35 @@
+@import '../../assets/variables/main';
+
+.messages {
+  border-right: 1px solid $white-gray;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__frame-chat {
+    height: 100%;
+
+    &__list-messages {
+      padding: 0 10px;
+      flex: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      position: relative;
+
+      &__button-scroll {
+        background-color: transparent;
+        text-align: center;
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        background-color: white;
+        border-radius: 50%;
+      }
+    }
+  }
+}

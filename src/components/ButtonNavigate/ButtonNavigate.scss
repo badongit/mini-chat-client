@@ -1,0 +1,18 @@
+@import '../../assets/variables/main';
+
+.button-navigate {
+  width: 100%;
+  color: black;
+  position: relative;
+  transition: all 0.35s ease-out;
+
+  @include hover-bar-bottom;
+}
+
+.button-icon {
+  @include flex-center;
+}
+
+.selected {
+  @include selected-button;
+}

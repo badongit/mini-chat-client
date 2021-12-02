@@ -1,0 +1,13 @@
+@import '../../assets/variables/main';
+.list-messages {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  height: 100%;
+  @include vertical-scroll;
+  transition: all 0.35s ease;
+
+  &__loadmore {
+    text-align: center;
+  }
+}

@@ -1,0 +1,16 @@
+@import '../../assets/variables/main';
+
+.auth {
+  &__header {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  &__form-outlet {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+}
