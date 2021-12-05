@@ -4,7 +4,7 @@ import authServices from '@services/auth.services';
 import { global, config } from '@constants/index';
 
 const instance = Axios.create({
-  baseURL: 'https://b176-1-55-108-254.ngrok.io/api',
+  baseURL: config.BASE_URL,
 });
 
 instance.interceptors.request.use((config) => {
@@ -32,8 +32,8 @@ instance.interceptors.response.use(
       localStorage.getItem(global.REFRESH_TOKEN);
 
     if (
-      error?.response.status === 401 &&
-      error.response.data.message === 'jwt expired' &&
+      error.response?.status === 401 &&
+      error.response?.data?.message === 'jwt expired' &&
       (config.retry || 0) < 4 &&
       refreshToken &&
       !urlIgnore.includes(config.url)

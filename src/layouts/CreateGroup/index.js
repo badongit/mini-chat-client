@@ -79,7 +79,7 @@ export const CreateGroup = memo((props) => {
       <div className='create-group__modal'>
         <div className='create-group__modal__header'>
           <Typography variant='h6' align='center'>
-            CREATE GROUP
+            {groupNameCur ? 'UPDATE GROUP' : 'CREATE GROUP'}
           </Typography>
           <div className='create-group__modal__header__close'>
             <IconButton onClick={() => setHide(true)}>
