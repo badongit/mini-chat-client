@@ -21,6 +21,7 @@
     &__text {
       background-color: $white-gray;
       padding: 6px 10px;
+      margin-right: 10px;
       border-top-right-radius: 20px;
       border-bottom-right-radius: 20px;
       position: relative;
@@ -35,6 +36,16 @@
         white-space: nowrap;
         border-radius: 10px;
         z-index: 1000;
+      }
+
+      &__not-send {
+        position: absolute;
+        bottom: 0;
+        right: -15px;
+        width: 10px;
+        height: 10px;
+        border: 1px solid $blue;
+        border-radius: 50%;
       }
 
       &:hover &__time {

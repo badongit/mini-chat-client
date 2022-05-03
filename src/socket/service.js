@@ -135,11 +135,12 @@ export default class SocketService {
    *
    * @param {{text: string, userId?: string, conversationId?: string}} param0
    */
-  clientSendMessage = ({ text, userId, conversationId }) => {
+  clientSendMessage = ({ text, userId, conversationId, subId }) => {
     this.socket.emit(SocketEventEnum.CLIENT_SEND_MESSAGE, {
       text,
       userId,
       conversationId,
+      subId,
     });
   };
 

@@ -11,6 +11,7 @@ MessageCard.propTypes = {
   time: PropTypes.string,
   name: PropTypes.string,
   position: PropTypes.oneOf(['only', 'top', 'middle', 'bottom']),
+  id: PropTypes.string,
 };
 
 MessageCard.defaultProps = {
@@ -18,10 +19,11 @@ MessageCard.defaultProps = {
   link: '',
   time: '',
   name: '',
+  id: '',
 };
 
 export function MessageCard(props) {
-  const { type, link, text, time, name, position } = props;
+  const { type, link, text, time, name, position, id } = props;
   const positionClass = position ? `message-card__${position}` : '';
 
   let body;
@@ -52,6 +54,7 @@ export function MessageCard(props) {
             <div className='message-card__contain__text'>
               {text}
               <div className='message-card__contain__text__time'>{time}</div>
+              {id === '' ? <div className='message-card__contain__text__not-send'></div> : null}
             </div>
           </div>
         </div>

@@ -10,6 +10,7 @@ import { Loading } from '@components/index';
 import SocketEventEnum from '@socket/events';
 import useMessages from '@hooks/useMessages';
 import { ArrowDownward } from '@material-ui/icons';
+import { v4 as uuidv4 } from 'uuid';
 
 export const Messages = React.memo(function (props) {
   const { socketService, socket } = useContext(SocketContext);
@@ -18,15 +19,8 @@ export const Messages = React.memo(function (props) {
   const user = useSelector((state) => state.auth.data.user);
   const [hideDetail, setHideDetail] = useState(true);
 
-  const {
-    messages,
-    loading,
-    pagination,
-    increasePagination,
-    insertMessage,
-    setConditions,
-    lastMessageElementRef,
-  } = useMessages();
+  const { messages, loading, pagination, insertMessage, setConditions, lastMessageElementRef } =
+    useMessages();
 
   const scrollRef = useRef();
 
@@ -36,19 +30,28 @@ export const Messages = React.memo(function (props) {
       const conversationId = conversation?._id;
       const userId = stranger?._id;
       const text = data.text;
-      if (socket) socketService.clientSendMessage({ conversationId, userId, text });
+      const subId = uuidv4();
+      if (socket) socketService.clientSendMessage({ conversationId, userId, text, subId });
+      insertMessage({
+        conversationId,
+        userId,
+        text,
+        subId,
+        conversation,
+        type: 'user',
+        sender: user,
+      });
     },
-    [conversation?._id, stranger?._id, socket, socketService],
+    [stranger?._id, socket, socketService, insertMessage, user, conversation],
   );
 
   const handleReceiveMessage = useCallback(
     (message) => {
       if (message.conversation === conversation?._id) {
         insertMessage(message);
-        increasePagination();
       }
     },
-    [conversation?._id, increasePagination, insertMessage],
+    [conversation?._id, insertMessage],
   );
 
   const handleScrollIntoView = useCallback(() => {

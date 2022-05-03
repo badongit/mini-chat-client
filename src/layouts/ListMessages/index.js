@@ -53,7 +53,8 @@ export function ListMessages(props) {
 
     return (
       <MessageCard
-        key={message._id}
+        key={message._id || message.subId}
+        id={message._id}
         type={type}
         link={link}
         text={text}
