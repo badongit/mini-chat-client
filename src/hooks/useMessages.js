@@ -60,7 +60,7 @@ const useMessages = () => {
         total: prePagination.total + 1,
       }));
     }
-  }, [pagination]);
+  }, [pagination.next]);
 
   const insertMessage = useCallback(
     /**
@@ -69,10 +69,25 @@ const useMessages = () => {
      */
     (message) => {
       if (message) {
-        setMessages((preMessages) => [message].concat(preMessages));
+        setMessages((preMessages) => {
+          console.log(preMessages);
+          const oldMessageIdx = preMessages.findIndex(
+            (m) => m.subId === message.subId && message.subId !== null,
+          );
+          console.log(oldMessageIdx);
+          if (oldMessageIdx !== -1) {
+            let newMessages = [...preMessages];
+            newMessages.splice(oldMessageIdx, 1, message);
+            console.log(newMessages);
+            return newMessages;
+          } else {
+            increasePagination();
+            return [message].concat(preMessages);
+          }
+        });
       }
     },
-    [],
+    [increasePagination],
   );
 
   return {

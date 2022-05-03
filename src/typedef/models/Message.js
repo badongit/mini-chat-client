@@ -7,5 +7,6 @@
  * @property {string} text
  * @property {'user' | 'system'} type
  * @property {Date} createdAt
+ * @property {string} subId
  *
  */
