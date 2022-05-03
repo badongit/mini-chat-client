@@ -155,7 +155,9 @@ export default class SocketService {
   };
 
   destroyAllListeners = () => {
-    this.socket.removeAllListeners();
+    if (this.socket) {
+      this.socket.removeAllListeners();
+    }
   };
 
   /**
@@ -163,9 +165,11 @@ export default class SocketService {
    * @param {(...args?: any[]) => any} handler
    */
   destroyListeners = (eventNames) => {
-    eventNames.forEach((eventName) => {
-      this.socket.removeAllListeners(eventName);
-    });
+    if (this.socket) {
+      eventNames.forEach((eventName) => {
+        this.socket.removeAllListeners(eventName);
+      });
+    }
   };
 
   disconnect = () => {
