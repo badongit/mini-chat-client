@@ -39,7 +39,7 @@ const useUsers = (exceptUsers) => {
 
       if (node) observer.current.observe(node);
     },
-    [loading, pagination.next],
+    [loading, pagination?.next],
   );
 
   useEffect(() => {
@@ -53,7 +53,7 @@ const useUsers = (exceptUsers) => {
         setListUsers(response.data);
       }
 
-      setPagination(response.pagination);
+      setPagination(response?.pagination);
       setLoading(false);
     })();
   }, [conditions]);
