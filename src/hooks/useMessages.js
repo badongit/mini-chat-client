@@ -70,15 +70,12 @@ const useMessages = () => {
     (message) => {
       if (message) {
         setMessages((preMessages) => {
-          console.log(preMessages);
           const oldMessageIdx = preMessages.findIndex(
             (m) => m.subId === message.subId && message.subId !== null,
           );
-          console.log(oldMessageIdx);
           if (oldMessageIdx !== -1) {
             let newMessages = [...preMessages];
             newMessages.splice(oldMessageIdx, 1, message);
-            console.log(newMessages);
             return newMessages;
           } else {
             increasePagination();
